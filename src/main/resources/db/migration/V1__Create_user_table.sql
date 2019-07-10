@@ -1,0 +1,9 @@
+CREATE TABLE user
+(
+    ID int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    ACCOUNT_ID varchar(100) NOT NULL,
+    NAME varchar(50) NOT NULL,
+    TOKEN varchar(36) NOT NULL,
+    CREATE_TIME bigint,
+    MODIFIED_TIME bigint
+);
