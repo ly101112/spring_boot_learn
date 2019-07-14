@@ -1,5 +1,8 @@
 package com.test.www.model;
 
+import lombok.Data;
+
+@Data
 public class User {
     private Integer id;
     private String name;
@@ -7,6 +10,7 @@ public class User {
     private String token;
     private Long creatTime;
     private Long modifiedTime;
+    private String avatarUrl;
 
     public Integer getId() {
         return id;
@@ -54,5 +58,21 @@ public class User {
 
     public void setModifiedTime(Long modifiedTime) {
         this.modifiedTime = modifiedTime;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    public User setTmpUser(){
+        this.setId(1);
+        this.setAccountId("123");
+        this.setName("y");
+        this.setToken("123sadasd");
+        return this;
     }
 }

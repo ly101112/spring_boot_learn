@@ -34,7 +34,7 @@ public class AuthorizeController {
     @GetMapping("/callback")
     public String callback(@RequestParam(name = "code") String code,
                            @RequestParam(name = "state") String state,
-                           HttpServletResponse response){
+                           HttpServletResponse response) {
 
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setClient_id(clientId);
@@ -52,6 +52,8 @@ public class AuthorizeController {
             user.setAccountId(String.valueOf(githubUser.getId()));
             user.setCreatTime(System.currentTimeMillis());
             user.setModifiedTime(user.getCreatTime());
+            user.setAvatarUrl(githubUser.getAvatarUrl());
+
             userMapper.insertUser(user);
 
             response.addCookie(new Cookie("token", token));

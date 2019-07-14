@@ -10,7 +10,7 @@ import java.io.IOException;
 
 @Component
 public class GithubProvider {
-    public String getAccessToken(AccessTokenDTO accessTokenDTO){
+    public String getAccessToken(AccessTokenDTO accessTokenDTO) {
 
         MediaType mediaType = MediaType.get("application/json; charset=utf-8");
 
@@ -32,7 +32,7 @@ public class GithubProvider {
         return "";
     }
 
-    public GithubUser getUser(String accessToken){
+    public GithubUser getUser(String accessToken) {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
