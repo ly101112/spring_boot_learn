@@ -87,4 +87,24 @@ public class QuestionService {
 
         return paginationDTO;
     }
+
+    public QuestionDTO getById(Integer id) {
+        Question question = questionMapper.findById(id);
+        User user = userMapper.findByID(question.getUid());
+        QuestionDTO questionDTO = new QuestionDTO();
+        BeanUtils.copyProperties(question, questionDTO);
+        questionDTO.setUser(user);
+
+        return questionDTO;
+    }
+
+    public void save(Question question) {
+        question.setModifiedTime(System.currentTimeMillis());
+        if (question.getId() == null) {
+            question.setCreateTime(question.getModifiedTime());
+            questionMapper.insertQuestion(question);
+        } else {
+            questionMapper.update(question);
+        }
+    }
 }

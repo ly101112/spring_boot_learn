@@ -1,1 +1,0 @@
-ALTER TABLE USER ADD COLUMN avater varchar(255) NOT NULL;

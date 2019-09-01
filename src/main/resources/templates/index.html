@@ -17,14 +17,16 @@
             <div class="media" th:each="question : ${dataList.data}">
                 <div class="media-left">
                     <a href="#">
-                        <img class="media-object img-rounded img-size-40" th:src="${question.user.avatarUrl}"
+                        <img class="media-object img-rounded img-size-40" th:src="${question.user.avatar}"
                              src="https://static.hdslb.com/images/member/noface.gif" alt="avatar">
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading" th:text="${question.title}">Media heading</h4>
+                    <h4 class="media-heading">
+                        <a th:href="@{'/question/' + ${question.id}}" th:text="${question.title}"></a>
+                    </h4>
                     <span class="question-text-desc" th:text="${question.description}">阿斯顿骄傲的</span><br>
-                    <span class="question-text-body">
+                    <span class="text-desc">
                         <span th:text="${question.commentCount}">0</span> 个回复 × <span
                             th:text="${question.viewCount}"></span> 次浏览 × <span
                             th:text="${#dates.format(question.createTime, 'yyyy-MM-dd HH:mm:SS')}"></span>
@@ -34,7 +36,7 @@
             <nav aria-label="Page navigation">
                 <ul class="pagination">
                     <li>
-                        <a href="/page/1" aria-label="Previous">
+                        <a href="/?page=1" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
@@ -55,7 +57,7 @@
                         </a>
                     </li>
                     <li>
-                        <a th:href="${dataList.total / 5 + 1}" aria-label="Next">
+                        <a th:href="@{/(page=${dataList.total / 5 + 1})}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>

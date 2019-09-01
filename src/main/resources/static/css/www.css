@@ -17,8 +17,17 @@ body {
     height: 40px;
 }
 
-.question-text-body {
+.text-desc {
     font-size: 12px;
     font-weight: normal;
     color: #999999;
+}
+
+.profile .section{
+    margin-top: 15px;
+}
+
+.question-menu{
+    color: #999999;
+    font-size: 13px;
 }

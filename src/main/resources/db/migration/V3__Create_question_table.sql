@@ -1,34 +1,13 @@
-create table question
+CREATE TABLE question
 (
-	id int auto_increment,
-	title varchar(50) not null,
-	description text,
-	create_time bigint,
-	modified_time bigint,
-	uid int not null,
-	comment_count int default 0 not null,
-	view_count int default 0 not null,
-	like_count int default 0 not null,
-	tag varchar(256) not null,
-	constraint question_pk
-		primary key (id)
-);
-
-create unique index question_comment_count_uindex
-	on question (comment_count);
-
-create unique index question_create_time_uindex
-	on question (create_time);
-
-create unique index question_like_count_uindex
-	on question (like_count);
-
-create unique index question_modified_time_uindex
-	on question (modified_time);
-
-create unique index question_uid_uindex
-	on question (uid);
-
-create unique index question_view_count_uindex
-	on question (view_count);
-
+	id int AUTO_INCREMENT PRIMARY KEY,
+	title varchar(50) NOT NULL,
+	description text NOT NULL,
+	create_time bigint NOT NULL,
+	modified_time bigint NOT NULL,
+	uid int NOT NULL,
+	comment_count int DEFAULT 0 NOT NULL,
+	view_count int DEFAULT 0 NOT NULL,
+	like_count int DEFAULT 0 NOT NULL,
+	tag varchar(256) DEFAULT '' NOT NULL
+)ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

@@ -1,10 +1,7 @@
 package com.test.www.mapper;
 
 import com.test.www.model.Question;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -27,4 +24,10 @@ public interface QuestionMapper {
 
     @Select("SELECT COUNT(1) FROM question WHERE uid = #{id}")
     Integer userTotal(@Param(value = "id") Integer id);
+
+    @Select("SELECT * FROM question WHERE id = #{id}")
+    Question findById(@Param(value = "id") Integer id);
+
+    @Update("UPDATE question SET title = #{title}, description = #{description}, modified_time = #{modifiedTime}, tag = #{tag} WHERE id = #{id}")
+    void update(Question question);
 }

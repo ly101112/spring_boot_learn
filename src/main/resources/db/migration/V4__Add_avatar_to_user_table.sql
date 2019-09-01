@@ -1,0 +1,1 @@
+ALTER TABLE www.user ADD COLUMN avatar varchar(255) DEFAULT '' NOT NULL;
